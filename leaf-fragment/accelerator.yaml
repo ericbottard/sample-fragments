@@ -1,0 +1,9 @@
+accelerator:
+  displayName: Leaf fragment
+  description: A fragment that is imported
+  # options for the UI
+  options:
+    - name: optionFromLeaf
+      dataType: boolean
+    - name: optionFromLeaf2
+      dataType: string

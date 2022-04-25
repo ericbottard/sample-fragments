@@ -1,0 +1,13 @@
+accelerator:
+  displayName: Chained fragment
+  description: A fragment that imports another fragment
+  # options for the UI
+  options:
+    - name: optionFromChained
+      dataType: number
+  imports:
+    - name: leaf-fragment
+      expose:
+        - name: optionFromLeaf
+          as: optionFromChained2
+        - name: "*"
