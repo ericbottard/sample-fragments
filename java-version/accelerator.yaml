@@ -35,3 +35,5 @@ engine:
           regex:
             pattern: "sourceCompatibility = .*"
             with: "'sourceCompatibility = ''' + #javaVersion + ''''"
+  onConflict: FavorForeign
+  
