@@ -5,5 +5,7 @@ accelerator:
   options:
     - name: optionFromLeaf
       dataType: boolean
+      description: "I am a description of a boolean option"
+      label: And this is my label
     - name: optionFromLeaf2
       dataType: string
