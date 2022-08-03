@@ -1,359 +1,539 @@
 accelerator:
+  name: "initializr"
+  description: "invoke Spring Initializr"
   options:
+  - name: "groupId"
+    dataType: "string"
+    defaultValue: "com.example"
+    description: "project coordinates"
+  - name: "artifactId"
+    dataType: "string"
+    defaultValue: "demo"
+    description: "project coordinates (infer archive name)"
+  - name: "version"
+    dataType: "string"
+    defaultValue: "0.0.1-SNAPSHOT"
+    description: "project version"
+  - name: "packageName"
+    dataType: "string"
+    defaultValue: "com.example.demo"
+    description: "root package"
+  - name: "bootVersion"
+    dataType: "string"
+    defaultValue: "2.1.1.RELEASE"
+    description: "spring boot version"
+    choices:
+    - value: "2.2.0.BUILD-SNAPSHOT"
+      text: "Latest SNAPSHOT"
+    - value: "2.1.1.RELEASE"
+      text: "2.1.1."
+  - name: "language"
+    dataType: "string"
+    defaultValue: "java"
+    description: "programming language"
+    choices:
+    - value: "java"
+      text: "Java"
+    - value: "kotlin"
+      text: "Kotlin"
+    - value: "groovy"
+      text: "Groovy"
+  - name: "packaging"
+    dataType: "string"
+    defaultValue: "jar"
+    description: "project packaging"
+    choices:
+    - value: "jar"
+      text: "Jar"
+    - value: "war"
+      text: "War"
+  - name: "javaVersion"
+    dataType: "string"
+    defaultValue: "17"
+    description: "language level"
+    choices:
+    - value: "18"
+      text: "18"
+    - value: "17"
+      text: "17"
+    - value: "11"
+      text: "11"
+    - value: "1.8"
+      text: "8"
   - name: "developerTools"
     dataType:
     - "string"
     defaultValue: []
-    description: "Developer Tools"
+    description: "Dependencies: Developer Tools"
     choices:
     - value: "native"
-      text: "Spring Native [Experimental]"
+      text: "Spring Native [Experimental]  -  Incubating support for compiling Spring\
+        \ applications to native executables using the GraalVM native-image compiler."
     - value: "devtools"
-      text: "Spring Boot DevTools"
+      text: "Spring Boot DevTools  -  Provides fast application restarts, LiveReload,\
+        \ and configurations for enhanced development experience."
     - value: "lombok"
-      text: "Lombok"
+      text: "Lombok  -  Java annotation library which helps to reduce boilerplate code."
     - value: "configuration-processor"
-      text: "Spring Configuration Processor"
+      text: "Spring Configuration Processor  -  Generate metadata for developers to\
+        \ offer contextual help and \"code completion\" when working with custom configuration\
+        \ keys (ex.application.properties/.yml files)."
   - name: "web"
     dataType:
     - "string"
     defaultValue: []
-    description: "Web"
+    description: "Dependencies: Web"
     choices:
     - value: "web"
-      text: "Spring Web"
+      text: "Spring Web  -  Build web, including RESTful, applications using Spring\
+        \ MVC. Uses Apache Tomcat as the default embedded container."
     - value: "webflux"
-      text: "Spring Reactive Web"
+      text: "Spring Reactive Web  -  Build reactive web applications with Spring WebFlux\
+        \ and Netty."
     - value: "graphql"
-      text: "Spring for GraphQL"
+      text: "Spring for GraphQL  -  Build GraphQL applications with Spring for GraphQL\
+        \ and GraphQL Java."
     - value: "data-rest"
-      text: "Rest Repositories"
+      text: "Rest Repositories  -  Exposing Spring Data repositories over REST via Spring\
+        \ Data REST."
     - value: "session"
-      text: "Spring Session"
+      text: "Spring Session  -  Provides an API and implementations for managing user\
+        \ session information."
     - value: "data-rest-explorer"
-      text: "Rest Repositories HAL Explorer"
+      text: "Rest Repositories HAL Explorer  -  Browsing Spring Data REST repositories\
+        \ in your browser."
     - value: "hateoas"
-      text: "Spring HATEOAS"
+      text: "Spring HATEOAS  -  Eases the creation of RESTful APIs that follow the HATEOAS\
+        \ principle when working with Spring / Spring MVC."
     - value: "web-services"
-      text: "Spring Web Services"
+      text: "Spring Web Services  -  Facilitates contract-first SOAP development. Allows\
+        \ for the creation of flexible web services using one of the many ways to manipulate\
+        \ XML payloads."
     - value: "jersey"
-      text: "Jersey"
+      text: "Jersey  -  Framework for developing RESTful Web Services in Java that provides\
+        \ support for JAX-RS APIs."
     - value: "vaadin"
-      text: "Vaadin"
+      text: "Vaadin  -  A web framework that allows you to write UI in pure Java without\
+        \ getting bogged down in JS, HTML, and CSS."
   - name: "templateEngines"
     dataType:
     - "string"
     defaultValue: []
-    description: "Template Engines"
+    description: "Dependencies: Template Engines"
     choices:
     - value: "thymeleaf"
-      text: "Thymeleaf"
+      text: "Thymeleaf  -  A modern server-side Java template engine for both web and\
+        \ standalone environments. Allows HTML to be correctly displayed in browsers\
+        \ and as static prototypes."
     - value: "freemarker"
-      text: "Apache Freemarker"
+      text: "Apache Freemarker  -  Java library to generate text output (HTML web pages,\
+        \ e-mails, configuration files, source code, etc.) based on templates and changing\
+        \ data."
     - value: "mustache"
-      text: "Mustache"
+      text: "Mustache  -  Logic-less Templates. There are no if statements, else clauses,\
+        \ or for loops. Instead there are only tags."
     - value: "groovy-templates"
-      text: "Groovy Templates"
+      text: "Groovy Templates  -  Groovy templating engine."
   - name: "security"
     dataType:
     - "string"
     defaultValue: []
-    description: "Security"
+    description: "Dependencies: Security"
     choices:
     - value: "security"
-      text: "Spring Security"
+      text: "Spring Security  -  Highly customizable authentication and access-control\
+        \ framework for Spring applications."
     - value: "oauth2-client"
-      text: "OAuth2 Client"
+      text: "OAuth2 Client  -  Spring Boot integration for Spring Security's OAuth2/OpenID\
+        \ Connect client features."
     - value: "oauth2-resource-server"
-      text: "OAuth2 Resource Server"
+      text: "OAuth2 Resource Server  -  Spring Boot integration for Spring Security's\
+        \ OAuth2 resource server features."
     - value: "data-ldap"
-      text: "Spring LDAP"
+      text: "Spring LDAP  -  Makes it easier to build Spring based applications that\
+        \ use the Lightweight Directory Access Protocol."
     - value: "okta"
-      text: "Okta"
+      text: "Okta  -  Okta specific configuration for Spring Security/Spring Boot OAuth2\
+        \ features. Enable your Spring Boot application to work with Okta via OAuth\
+        \ 2.0/OIDC."
   - name: "sQL"
     dataType:
     - "string"
     defaultValue: []
-    description: "SQL"
+    description: "Dependencies: SQL"
     choices:
     - value: "jdbc"
-      text: "JDBC API"
+      text: "JDBC API  -  Database Connectivity API that defines how a client may connect\
+        \ and query a database."
     - value: "data-jpa"
-      text: "Spring Data JPA"
+      text: "Spring Data JPA  -  Persist data in SQL stores with Java Persistence API\
+        \ using Spring Data and Hibernate."
     - value: "data-jdbc"
-      text: "Spring Data JDBC"
+      text: "Spring Data JDBC  -  Persist data in SQL stores with plain JDBC using Spring\
+        \ Data."
     - value: "data-r2dbc"
-      text: "Spring Data R2DBC"
+      text: "Spring Data R2DBC  -  Provides Reactive Relational Database Connectivity\
+        \ to persist data in SQL stores using Spring Data in reactive applications."
     - value: "mybatis"
-      text: "MyBatis Framework"
+      text: "MyBatis Framework  -  Persistence framework with support for custom SQL,\
+        \ stored procedures and advanced mappings. MyBatis couples objects with stored\
+        \ procedures or SQL statements using a XML descriptor or annotations."
     - value: "liquibase"
-      text: "Liquibase Migration"
+      text: "Liquibase Migration  -  Liquibase database migration and source control\
+        \ library."
     - value: "flyway"
-      text: "Flyway Migration"
+      text: "Flyway Migration  -  Version control for your database so you can migrate\
+        \ from any version (incl. an empty database) to the latest version of the schema."
     - value: "jooq"
-      text: "JOOQ Access Layer"
+      text: "JOOQ Access Layer  -  Generate Java code from your database and build type\
+        \ safe SQL queries through a fluent API."
     - value: "db2"
-      text: "IBM DB2 Driver"
+      text: "IBM DB2 Driver  -  A JDBC driver that provides access to IBM DB2."
     - value: "derby"
-      text: "Apache Derby Database"
+      text: "Apache Derby Database  -  An open source relational database implemented\
+        \ entirely in Java."
     - value: "h2"
-      text: "H2 Database"
+      text: "H2 Database  -  Provides a fast in-memory database that supports JDBC API\
+        \ and R2DBC access, with a small (2mb) footprint. Supports embedded and server\
+        \ modes as well as a browser based console application."
     - value: "hsql"
-      text: "HyperSQL Database"
+      text: "HyperSQL Database  -  Lightweight 100% Java SQL Database Engine."
     - value: "mariadb"
-      text: "MariaDB Driver"
+      text: "MariaDB Driver  -  MariaDB JDBC and R2DBC driver."
     - value: "sqlserver"
-      text: "MS SQL Server Driver"
+      text: "MS SQL Server Driver  -  A JDBC and R2DBC driver that provides access to\
+        \ Microsoft SQL Server and Azure SQL Database from any Java application."
     - value: "mysql"
-      text: "MySQL Driver"
+      text: "MySQL Driver  -  MySQL JDBC and R2DBC driver."
     - value: "oracle"
-      text: "Oracle Driver"
+      text: "Oracle Driver  -  A JDBC driver that provides access to Oracle."
     - value: "postgresql"
-      text: "PostgreSQL Driver"
+      text: "PostgreSQL Driver  -  A JDBC and R2DBC driver that allows Java programs\
+        \ to connect to a PostgreSQL database using standard, database independent Java\
+        \ code."
   - name: "noSQL"
     dataType:
     - "string"
     defaultValue: []
-    description: "NoSQL"
+    description: "Dependencies: NoSQL"
     choices:
     - value: "data-redis"
-      text: "Spring Data Redis (Access+Driver)"
+      text: "Spring Data Redis (Access+Driver)  -  Advanced and thread-safe Java Redis\
+        \ client for synchronous, asynchronous, and reactive usage. Supports Cluster,\
+        \ Sentinel, Pipelining, Auto-Reconnect, Codecs and much more."
     - value: "data-redis-reactive"
-      text: "Spring Data Reactive Redis"
+      text: "Spring Data Reactive Redis  -  Access Redis key-value data stores in a\
+        \ reactive fashion with Spring Data Redis."
     - value: "data-mongodb"
-      text: "Spring Data MongoDB"
+      text: "Spring Data MongoDB  -  Store data in flexible, JSON-like documents, meaning\
+        \ fields can vary from document to document and data structure can be changed\
+        \ over time."
     - value: "data-mongodb-reactive"
-      text: "Spring Data Reactive MongoDB"
+      text: "Spring Data Reactive MongoDB  -  Provides asynchronous stream processing\
+        \ with non-blocking back pressure for MongoDB."
     - value: "data-elasticsearch"
-      text: "Spring Data Elasticsearch (Access+Driver)"
+      text: "Spring Data Elasticsearch (Access+Driver)  -  A distributed, RESTful search\
+        \ and analytics engine with Spring Data Elasticsearch."
     - value: "data-cassandra"
-      text: "Spring Data for Apache Cassandra"
+      text: "Spring Data for Apache Cassandra  -  A free and open-source, distributed,\
+        \ NoSQL database management system that offers high-scalability and high-performance."
     - value: "data-cassandra-reactive"
-      text: "Spring Data Reactive for Apache Cassandra"
+      text: "Spring Data Reactive for Apache Cassandra  -  Access Cassandra NoSQL Database\
+        \ in a reactive fashion."
     - value: "geode"
-      text: "Spring for Apache Geode"
+      text: "Spring for Apache Geode  -  Apache Geode is a data management platform\
+        \ that helps users build real-time, highly concurrent, highly performant and\
+        \ reliable Spring Boot applications at scale that is compatible with Pivotal\
+        \ Cloud Cache."
     - value: "data-couchbase"
-      text: "Spring Data Couchbase"
+      text: "Spring Data Couchbase  -  NoSQL document-oriented database that offers\
+        \ in memory-first architecture, geo-distributed deployments, and workload isolation."
     - value: "data-couchbase-reactive"
-      text: "Spring Data Reactive Couchbase"
+      text: "Spring Data Reactive Couchbase  -  Access Couchbase NoSQL database in a\
+        \ reactive fashion with Spring Data Couchbase."
     - value: "data-neo4j"
-      text: "Spring Data Neo4j"
+      text: "Spring Data Neo4j  -  An open source NoSQL database that stores data structured\
+        \ as graphs consisting of nodes, connected by relationships."
   - name: "messaging"
     dataType:
     - "string"
     defaultValue: []
-    description: "Messaging"
+    description: "Dependencies: Messaging"
     choices:
     - value: "integration"
-      text: "Spring Integration"
+      text: "Spring Integration  -  Adds support for Enterprise Integration Patterns.\
+        \ Enables lightweight messaging and supports integration with external systems\
+        \ via declarative adapters."
     - value: "amqp"
-      text: "Spring for RabbitMQ"
+      text: "Spring for RabbitMQ  -  Gives your applications a common platform to send\
+        \ and receive messages, and your messages a safe place to live until received."
     - value: "kafka"
-      text: "Spring for Apache Kafka"
+      text: "Spring for Apache Kafka  -  Publish, subscribe, store, and process streams\
+        \ of records."
     - value: "kafka-streams"
-      text: "Spring for Apache Kafka Streams"
+      text: "Spring for Apache Kafka Streams  -  Building stream processing applications\
+        \ with Apache Kafka Streams."
     - value: "activemq"
-      text: "Spring for Apache ActiveMQ 5"
+      text: "Spring for Apache ActiveMQ 5  -  Spring JMS support with Apache ActiveMQ\
+        \ 'Classic'."
     - value: "artemis"
-      text: "Spring for Apache ActiveMQ Artemis"
+      text: "Spring for Apache ActiveMQ Artemis  -  Spring JMS support with Apache ActiveMQ\
+        \ Artemis."
     - value: "websocket"
-      text: "WebSocket"
+      text: "WebSocket  -  Build WebSocket applications with SockJS and STOMP."
     - value: "rsocket"
-      text: "RSocket"
+      text: "RSocket  -  RSocket.io applications with Spring Messaging and Netty."
     - value: "camel"
-      text: "Apache Camel"
+      text: "Apache Camel  -  Apache Camel is an open source integration framework that\
+        \ empowers you to quickly and easily integrate various systems consuming or\
+        \ producing data."
     - value: "solace"
-      text: "Solace PubSub+"
-  - name: "i/O"
+      text: "Solace PubSub+  -  Connect to a Solace PubSub+ Advanced Event Broker to\
+        \ publish, subscribe, request/reply and store/replay messages"
+  - name: "iO"
     dataType:
     - "string"
     defaultValue: []
-    description: "I/O"
+    description: "Dependencies: I/O"
     choices:
     - value: "batch"
-      text: "Spring Batch"
+      text: "Spring Batch  -  Batch applications with transactions, retry/skip and chunk\
+        \ based processing."
     - value: "validation"
-      text: "Validation"
+      text: "Validation  -  Bean Validation with Hibernate validator."
     - value: "mail"
-      text: "Java Mail Sender"
+      text: "Java Mail Sender  -  Send email using Java Mail and Spring Framework's\
+        \ JavaMailSender."
     - value: "quartz"
-      text: "Quartz Scheduler"
+      text: "Quartz Scheduler  -  Schedule jobs using Quartz."
     - value: "cache"
-      text: "Spring cache abstraction"
+      text: "Spring cache abstraction  -  Provides cache-related operations, such as\
+        \ the ability to update the content of the cache, but does not provide the actual\
+        \ data store."
     - value: "picocli"
-      text: "Picocli"
+      text: "Picocli  -  Build command line applications with picocli."
     - value: "spring-shell"
-      text: "Spring Shell"
+      text: "Spring Shell  -  Build command line applications with spring."
   - name: "ops"
     dataType:
     - "string"
     defaultValue: []
-    description: "Ops"
+    description: "Dependencies: Ops"
     choices:
     - value: "actuator"
-      text: "Spring Boot Actuator"
+      text: "Spring Boot Actuator  -  Supports built in (or custom) endpoints that let\
+        \ you monitor and manage your application - such as application health, metrics,\
+        \ sessions, etc."
     - value: "codecentric-spring-boot-admin-client"
-      text: "Codecentric's Spring Boot Admin (Client)"
+      text: "Codecentric's Spring Boot Admin (Client)  -  Required for your application\
+        \ to register with a Codecentric's Spring Boot Admin Server instance."
     - value: "codecentric-spring-boot-admin-server"
-      text: "Codecentric's Spring Boot Admin (Server)"
+      text: "Codecentric's Spring Boot Admin (Server)  -  A community project to manage\
+        \ and monitor your Spring Boot applications. Provides a UI on top of the Spring\
+        \ Boot Actuator endpoints."
   - name: "observability"
     dataType:
     - "string"
     defaultValue: []
-    description: "Observability"
+    description: "Dependencies: Observability"
     choices:
     - value: "datadog"
-      text: "Datadog"
+      text: "Datadog  -  Publish Micrometer metrics to Datadog, a dimensional time-series\
+        \ SaaS with built-in dashboarding and alerting."
     - value: "influx"
-      text: "Influx"
+      text: "Influx  -  Publish Micrometer metrics to InfluxDB, a dimensional time-series\
+        \ server that support real-time stream processing of data."
     - value: "graphite"
-      text: "Graphite"
+      text: "Graphite  -  Publish Micrometer metrics to Graphite, a hierarchical metrics\
+        \ system backed by a fixed-size database."
     - value: "new-relic"
-      text: "New Relic"
+      text: "New Relic  -  Publish Micrometer metrics to New Relic, a SaaS offering\
+        \ with a full UI and a query language called NRQL."
     - value: "prometheus"
-      text: "Prometheus"
+      text: "Prometheus  -  Expose Micrometer metrics in Prometheus format, an in-memory\
+        \ dimensional time series database with a simple built-in UI, a custom query\
+        \ language, and math operations."
     - value: "cloud-starter-sleuth"
-      text: "Sleuth"
+      text: "Sleuth  -  Distributed tracing via logs with Spring Cloud Sleuth."
     - value: "wavefront"
-      text: "Wavefront"
+      text: "Wavefront  -  Publish Micrometer metrics to Tanzu Observability by Wavefront,\
+        \ a SaaS-based metrics monitoring and analytics platform that lets you visualize,\
+        \ query, and alert over data from across your entire stack."
     - value: "cloud-starter-zipkin"
-      text: "Zipkin Client"
+      text: "Zipkin Client  -  Distributed tracing with an existing Zipkin installation\
+        \ and Spring Cloud Sleuth Zipkin."
   - name: "testing"
     dataType:
     - "string"
     defaultValue: []
-    description: "Testing"
+    description: "Dependencies: Testing"
     choices:
     - value: "restdocs"
-      text: "Spring REST Docs"
+      text: "Spring REST Docs  -  Document RESTful services by combining hand-written\
+        \ with Asciidoctor and auto-generated snippets produced with Spring MVC Test."
     - value: "testcontainers"
-      text: "Testcontainers"
+      text: "Testcontainers  -  Provide lightweight, throwaway instances of common databases,\
+        \ Selenium web browsers, or anything else that can run in a Docker container."
     - value: "cloud-contract-verifier"
-      text: "Contract Verifier"
+      text: "Contract Verifier  -  Moves TDD to the level of software architecture by\
+        \ enabling Consumer Driven Contract (CDC) development."
     - value: "cloud-contract-stub-runner"
-      text: "Contract Stub Runner"
+      text: "Contract Stub Runner  -  Stub Runner for HTTP/Messaging based communication.\
+        \ Allows creating WireMock stubs from RestDocs tests."
     - value: "unboundid-ldap"
-      text: "Embedded LDAP Server"
+      text: "Embedded LDAP Server  -  Provides a platform neutral way for running a\
+        \ LDAP server in unit tests."
     - value: "flapdoodle-mongo"
-      text: "Embedded MongoDB Database"
+      text: "Embedded MongoDB Database  -  Provides a platform neutral way for running\
+        \ MongoDB in unit tests."
   - name: "springCloud"
     dataType:
     - "string"
     defaultValue: []
-    description: "Spring Cloud"
+    description: "Dependencies: Spring Cloud"
     choices:
     - value: "cloud-starter"
-      text: "Cloud Bootstrap"
+      text: "Cloud Bootstrap  -  Non-specific Spring Cloud features, unrelated to external\
+        \ libraries or integrations (e.g. Bootstrap context and @RefreshScope)."
     - value: "cloud-function"
-      text: "Function"
+      text: "Function  -  Promotes the implementation of business logic via functions\
+        \ and supports a uniform programming model across serverless providers, as well\
+        \ as the ability to run standalone (locally or in a PaaS)."
     - value: "cloud-task"
-      text: "Task"
+      text: "Task  -  Allows a user to develop and run short lived microservices using\
+        \ Spring Cloud. Run them locally, in the cloud, and on Spring Cloud Data Flow."
   - name: "springCloudTools"
     dataType:
     - "string"
     defaultValue: []
-    description: "Spring Cloud Tools"
+    description: "Dependencies: Spring Cloud Tools"
     choices:
     - value: "open-service-broker"
-      text: "Open Service Broker"
+      text: "Open Service Broker  -  Framework for building Spring Boot apps that implement\
+        \ the Open Service Broker API, which can deliver services to applications running\
+        \ within cloud native platforms such as Cloud Foundry, Kubernetes and OpenShift."
   - name: "springCloudConfig"
     dataType:
     - "string"
     defaultValue: []
-    description: "Spring Cloud Config"
+    description: "Dependencies: Spring Cloud Config"
     choices:
     - value: "cloud-config-client"
-      text: "Config Client"
+      text: "Config Client  -  Client that connects to a Spring Cloud Config Server\
+        \ to fetch the application's configuration."
     - value: "cloud-config-server"
-      text: "Config Server"
+      text: "Config Server  -  Central management for configuration via Git, SVN, or\
+        \ HashiCorp Vault."
     - value: "cloud-starter-vault-config"
-      text: "Vault Configuration"
+      text: "Vault Configuration  -  Provides client-side support for externalized configuration\
+        \ in a distributed system. Using HashiCorp's Vault you have a central place\
+        \ to manage external secret properties for applications across all environments."
     - value: "cloud-starter-zookeeper-config"
-      text: "Apache Zookeeper Configuration"
+      text: "Apache Zookeeper Configuration  -  Enable and configure common patterns\
+        \ inside your application and build large distributed systems with Apache Zookeeper\
+        \ based components. The provided patterns include Service Discovery and Configuration."
     - value: "cloud-starter-consul-config"
-      text: "Consul Configuration"
+      text: "Consul Configuration  -  Enable and configure the common patterns inside\
+        \ your application and build large distributed systems with Hashicorp’s Consul.\
+        \ The patterns provided include Service Discovery, Distributed Configuration\
+        \ and Control Bus."
   - name: "springCloudDiscovery"
     dataType:
     - "string"
     defaultValue: []
-    description: "Spring Cloud Discovery"
+    description: "Dependencies: Spring Cloud Discovery"
     choices:
     - value: "cloud-eureka"
-      text: "Eureka Discovery Client"
+      text: "Eureka Discovery Client  -  A REST based service for locating services\
+        \ for the purpose of load balancing and failover of middle-tier servers."
     - value: "cloud-eureka-server"
-      text: "Eureka Server"
+      text: "Eureka Server  -  spring-cloud-netflix Eureka Server."
     - value: "cloud-starter-zookeeper-discovery"
-      text: "Apache Zookeeper Discovery"
+      text: "Apache Zookeeper Discovery  -  Service discovery with Apache Zookeeper."
     - value: "cloud-cloudfoundry-discovery"
-      text: "Cloud Foundry Discovery"
+      text: "Cloud Foundry Discovery  -  Service discovery with Cloud Foundry."
     - value: "cloud-starter-consul-discovery"
-      text: "Consul Discovery"
+      text: "Consul Discovery  -  Service discovery with Hashicorp Consul."
   - name: "springCloudRouting"
     dataType:
     - "string"
     defaultValue: []
-    description: "Spring Cloud Routing"
+    description: "Dependencies: Spring Cloud Routing"
     choices:
     - value: "cloud-gateway"
-      text: "Gateway"
+      text: "Gateway  -  Provides a simple, yet effective way to route to APIs and provide\
+        \ cross cutting concerns to them such as security, monitoring/metrics, and resiliency."
     - value: "cloud-feign"
-      text: "OpenFeign"
+      text: "OpenFeign  -  Declarative REST Client. OpenFeign creates a dynamic implementation\
+        \ of an interface decorated with JAX-RS or Spring MVC annotations."
     - value: "cloud-loadbalancer"
-      text: "Cloud LoadBalancer"
+      text: "Cloud LoadBalancer  -  Client-side load-balancing with Spring Cloud LoadBalancer."
   - name: "springCloudCircuitBreaker"
     dataType:
     - "string"
     defaultValue: []
-    description: "Spring Cloud Circuit Breaker"
+    description: "Dependencies: Spring Cloud Circuit Breaker"
     choices:
     - value: "cloud-resilience4j"
-      text: "Resilience4J"
+      text: "Resilience4J  -  Spring Cloud Circuit breaker with Resilience4j as the\
+        \ underlying implementation."
   - name: "springCloudMessaging"
     dataType:
     - "string"
     defaultValue: []
-    description: "Spring Cloud Messaging"
+    description: "Dependencies: Spring Cloud Messaging"
     choices:
     - value: "cloud-bus"
-      text: "Cloud Bus"
+      text: "Cloud Bus  -  Links nodes of a distributed system with a lightweight message\
+        \ broker which can used to broadcast state changes or other management instructions\
+        \ (requires a binder, e.g. Apache Kafka or RabbitMQ)."
     - value: "cloud-stream"
-      text: "Cloud Stream"
+      text: "Cloud Stream  -  Framework for building highly scalable event-driven microservices\
+        \ connected with shared messaging systems (requires a binder, e.g. Apache Kafka,\
+        \ RabbitMQ or Solace PubSub+)."
   - name: "vMwareTanzuApplicationService"
     dataType:
     - "string"
     defaultValue: []
-    description: "VMware Tanzu Application Service"
+    description: "Dependencies: VMware Tanzu Application Service"
     choices:
     - value: "scs-config-client"
-      text: "Config Client (TAS)"
+      text: "Config Client (TAS)  -  Config client on VMware Tanzu Application Service."
     - value: "scs-service-registry"
-      text: "Service Registry (TAS)"
+      text: "Service Registry (TAS)  -  Eureka service discovery client on VMware Tanzu\
+        \ Application Service."
   - name: "microsoftAzure"
     dataType:
     - "string"
     defaultValue: []
-    description: "Microsoft Azure"
+    description: "Dependencies: Microsoft Azure"
     choices:
     - value: "azure-support"
-      text: "Azure Support"
+      text: "Azure Support  -  Auto-configuration for Azure Services (Service Bus, Storage,\
+        \ Active Directory, Key Vault, and more)."
     - value: "azure-active-directory"
-      text: "Azure Active Directory"
+      text: "Azure Active Directory  -  Spring Security integration with Azure Active\
+        \ Directory for authentication."
     - value: "azure-cosmos-db"
-      text: "Azure Cosmos DB"
+      text: "Azure Cosmos DB  -  Fully managed NoSQL database service for modern app\
+        \ development, including Spring Data support."
     - value: "azure-keyvault-secrets"
-      text: "Azure Key Vault"
+      text: "Azure Key Vault  -  Manage application secrets."
     - value: "azure-storage"
-      text: "Azure Storage"
+      text: "Azure Storage  -  Azure Storage service integration."
   - name: "googleCloudPlatform"
     dataType:
     - "string"
     defaultValue: []
-    description: "Google Cloud Platform"
+    description: "Dependencies: Google Cloud Platform"
     choices:
     - value: "cloud-gcp"
-      text: "GCP Support"
+      text: "GCP Support  -  Contains auto-configuration support for every Spring Cloud\
+        \ GCP integration. Most of the auto-configuration code is only enabled if other\
+        \ dependencies are added to the classpath."
     - value: "cloud-gcp-pubsub"
-      text: "GCP Messaging"
+      text: "GCP Messaging  -  Adds the GCP Support entry and all the required dependencies\
+        \ so that the Google Cloud Pub/Sub integration work out of the box."
     - value: "cloud-gcp-storage"
-      text: "GCP Storage"
-
+      text: "GCP Storage  -  Adds the GCP Support entry and all the required dependencies\
+        \ so that the Google Cloud Storage integration work out of the box."
