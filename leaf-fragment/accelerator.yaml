@@ -9,3 +9,7 @@ accelerator:
       label: And this is my label
     - name: optionFromLeaf2
       dataType: string
+      dependsOn:
+        name: optionFromLeaf
+        value: true
+
